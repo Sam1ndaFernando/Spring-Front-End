@@ -71,7 +71,7 @@ $('#save-btn').click(function() {
     let studentCourse = $('#studentCourse').val();
 
     $.ajax({
-        url: "heylink", // Replace with your server URL
+        url: "heylink", 
         method: "POST",
         contentType: "application/json",
         data: JSON.stringify({
