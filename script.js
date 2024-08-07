@@ -58,32 +58,37 @@ function updateStudent(row) {
 }
 
 function deleteStudent(row) {
-    row.remove();
+    const confirmDelete = confirm("Are you sure you want to delete this student?");
+    if (confirmDelete) {
+        row.remove();
+    }
 }
 
-document.getElementById('save-btn').addEventListener('click', function() {
-    const students = [];
-    const tableBody = document.getElementById('studentTableBody');
-
-    tableBody.querySelectorAll('tr').forEach(row => {
-        const id = row.children[0].textContent;
-        const name = row.children[1].textContent;
-        const address = row.children[2].textContent;
-        const course = row.children[3].textContent;
-        students.push({ id, name, address, course });
-    });
+$('#save-btn').click(function() {
+    let studentId = $('#studentId').val();
+    let studentName = $('#studentName').val();
+    let studentAddress = $('#studentAddress').val();
+    let studentCourse = $('#studentCourse').val();
 
     $.ajax({
-        url: "your-server-endpoint", // Update with your server endpoint
+        url: "heylink", // Replace with your server URL
         method: "POST",
         contentType: "application/json",
-        data: JSON.stringify(students),
+        data: JSON.stringify({
+            studentId: studentId,
+            studentName: studentName,
+            studentAddress: studentAddress,
+            studentCourse: studentCourse
+        }),
         success: function(response) {
-            alert("Student data saved successfully!");
+            console.log(response);
+            alert("Data saved successfully!");
         },
         error: function(error) {
-            console.error("Error saving student data:", error);
-            alert("Failed to save student data.");
+            console.error(error);
+            alert("An error occurred while saving data.");
         }
     });
+
+    console.log("Save button clicked");
 });

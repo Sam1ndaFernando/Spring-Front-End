@@ -3,62 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Information Form</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Student information form</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
+
 <div class="container mt-5">
-  <h2>Student Information Form</h2>
-  <form>
+  <h1 class="text-center">Student Details Form</h1>
+   <form id="studentForm">
     <div class="form-group">
-      <label for="id">ID</label>
-      <input type="text" class="form-control" id="id" placeholder="Enter ID">
+      <label for="studentId">Student ID</label>
+      <input type="text" class="form-control" id="studentId" required>
     </div>
     <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter Name">
+      <label for="studentName">Student Name</label>
+      <input type="text" class="form-control" id="studentName" required>
     </div>
     <div class="form-group">
-      <label for="address">Address</label>
-      <input type="text" class="form-control" id="address" placeholder="Enter Address">
+      <label for="studentAddress">Student Address</label>
+      <input type="text" class="form-control" id="studentAddress" required>
     </div>
     <div class="form-group">
-      <label for="course">Course</label>
-      <input type="text" class="form-control" id="course" placeholder="Enter Course">
+      <label for="studentCourse">Student Course</label>
+      <input type="text" class="form-control" id="studentCourse" required>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Add Student</button>
   </form>
 
-  <br>
-  <br>
+  <table class="table mt-4">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Course</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody id="studentTableBody">
+    </tbody>
+  </table>
 
-  <div class="table-responsive">
-    <table class="table table-bordered table-hover">
-      <thead class="thead-dark">
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Address</th>
-        <th scope="col">Course</th>
-        <th scope="col">Actions</th>
-      </tr>
-      </thead>
-      <tbody id="studentTableBody">
-
-      <!--    add table rows-->
-      </tbody>
-    </table>
-  </div>
-
+  <button id="save-btn" class="btn btn-success">Save</button>
 </div>
 
-
-<button id="save-btn">Save Button</button>
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="script.js"></script>
-
 
 </body>
 </html>
